@@ -117,7 +117,7 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("~/.config/yamiyo/hypr/player-smart.sh
 -- Scripts
 hl.bind("ALT + W",        hl.dsp.exec_cmd("~/.config/yamiyo/rofi/wall.py")) -- wallpaper selector
 hl.bind("SUPER + X",      hl.dsp.exec_cmd("~/.config/yamiyo/rofi/power.sh")) --power menu
-hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("~/.config/yamiyo/rofi/menu.sh")) -- main menu
+hl.bind("SUPER + Space", hl.dsp.exec_cmd("~/.config/yamiyo/rofi/menu.sh")) -- main menu
 hl.bind("CTRL + Print", hl.dsp.exec_cmd("~/.config/yamiyo/hypr/screenshot.sh full")) -- full screenshot
 hl.bind("SHIFT + Print",  hl.dsp.exec_cmd("~/.config/yamiyo/hypr/screenshot.sh window")) -- window screenshot
 hl.bind("Print",  hl.dsp.exec_cmd("~/.config/yamiyo/hypr/screenshot.sh area")) -- selected screenshot
