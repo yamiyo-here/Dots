@@ -33,7 +33,7 @@ Put wallpapers in `~/Pictures/wallz/`. Press `ALT + W` to browse -- colors regen
 | `fastfetch` | | System info |
 | `nemo` | | File manager |
 | `firefox` | | Browser (auto-themed via pywalfox) |
-| | `quickshell` | Overview widget |
+| | `quickshell-overview-git` | Overview widget |
 
 ### Theming
 
@@ -103,7 +103,7 @@ Put wallpapers in `~/Pictures/wallz/`. Press `ALT + W` to browse -- colors regen
 ```bash
 sudo pacman -S --needed hyprland hyprpm kitty waybar rofi swaync swayosd cava fastfetch grim slurp jq playerctl wl-clipboard wtype libnotify nemo firefox mpv pipewire wireplumber pulsemixer qt6ct kvantum nwg-look materia-gtk-theme bibata-cursor-theme
 
-yay -S --needed hyprpolkitagent hyprmoncfg wallust python-pywalfox awww rofi-bluetooth-git swappy wl-screenrec-git cliphist yay quickshell ttf-jetbrains-mono-nerd ttf-meslo-nerd-font-powerlevel10k
+yay -S --needed hyprpolkitagent hyprmoncfg wallust python-pywalfox awww rofi-bluetooth-git swappy wl-screenrec-git cliphist yay quickshell-overview-git ttf-jetbrains-mono-nerd ttf-meslo-nerd-font-powerlevel10k
 ```
 
 Then install [WhiteSur-icon-theme](https://github.com/vinceliuice/WhiteSur-icon-theme) manually.
@@ -115,6 +115,12 @@ git clone https://github.com/yamiyo-here/Dots.git ~/Dots
 cd ~/Dots
 chmod +x install.sh
 ./install.sh
+```
+
+Test without changes first:
+
+```bash
+./install.sh --dry-run
 ```
 
 The install script will:
