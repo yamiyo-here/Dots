@@ -1,0 +1,95 @@
+@import "colors.rasi"
+
+* {
+    font:   "JetBrainsMono Nerd Font 12";
+
+    background-color:   transparent;
+    text-color:         @foreground;
+
+    margin:     0px;
+    padding:    0px;
+    spacing:    0px;
+}
+
+window {
+    location:       north;
+    y-offset:       calc(20%);
+    width:          480px;
+    border-radius:  12px;
+    background-color:   @color2;
+}
+
+mainbox {
+    padding:    12px;
+}
+
+inputbar {
+    background-color:   @background; 
+    border-radius:  8px;
+
+    padding:    8px 16px;
+    spacing:    8px;
+    children:   [ prompt, entry ];
+}
+
+prompt {
+    text-color: @foreground;
+}
+
+entry {
+    placeholder:        "Search:";
+    placeholder-color:  @color9;
+}
+
+message {
+    margin:             12px 0 0;
+    border-radius:      8px;
+    background-color:   @background;
+}
+
+textbox {
+    padding:    8px 24px;
+}
+
+listview {
+    background-color:   transparent;
+    // layout:         vertical;
+    // orientation:    vertical; 
+    margin:     12px 0 0;
+    lines:      12;
+    columns:    1;
+    border-radius: 8px;
+    padding: 1px; 
+    fixed-height: true;
+}
+
+element {
+    orientation:    horizontal;
+    padding:        8px 0px;
+    spacing:        6px;
+    border-radius:  8px;
+}
+
+element normal active {
+    text-color: @foreground;
+}
+
+element alternate active {
+    text-color: @foreground;
+}
+
+element selected normal, element selected active {
+    background-color:   @backgrounda;
+}
+
+element-icon {
+    size:           0;
+    vertical-align: 0.5;
+}
+
+element-text {
+    text-color: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    padding: 0px 0px 0px 12px;
+} 

@@ -1,0 +1,304 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 25,
+    "margin-left": 12,
+    "margin-right": 12,
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "reload_style_on_change": true,
+    "modules-left": ["clock", "group/system", "custom/cava", "hyprland/windowcount"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["group/expand", "group/player", "custom/pacman", "battery", "group/quick"],
+    "style": "~/.config/waybar/style.css",
+
+
+    // --------------------
+    // --- HYPRLAND IPC ---
+    // --------------------
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": "",
+            "10": "",
+            "11": "",
+            "12": "",
+            "13": "",
+            "14": "",
+            "15": "",
+            "16": "",
+            "17": "",
+            "18": "",
+            "19": "",
+            "20": ""
+        }
+    },
+
+
+    // -----------------
+    // --- LEFT SIDE ---
+    // -----------------
+
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "interval": 1,
+        "tooltip": false
+    },
+
+    "memory": {
+        "interval": 2,
+        "format": " {percentage}%",
+        "tooltip": true,
+        "tooltip-format": "RAM ({total:0.1f} GB):\n  Used: {used:0.1f}GB/{total:0.1f}GB ({percentage}%)\n  Available: {avail:0.1f}GB\n\nSwap ({swapTotal:0.1f} GB):\n  Used: {swapUsed:0.1f}GB/{swapTotal:0.1f}GB ({swapPercentage}%)\n  Available: {swapAvail:0.1f}GB",
+        "on-click": "kitty btm"
+    },
+
+    "cpu": {
+        "interval": 2,
+        "format": " {usage}%",
+        "max-length": 10,
+        "on-click": "kitty btm"
+    },
+
+    "temperature": {
+        "thermal-zone": 4,
+        "format": " {temperatureC}°C",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C ",
+        "tooltip-format": "CPU Temp°C:\n {temperatureC}°C\n\nCPU Temp°F:\n {temperatureF}°F",
+        "interval": 2,
+        "on-click": "kitty btm"
+    },
+
+    "custom/cava": {
+        "exec": "~/.config/yamiyo/waybar/cava.sh",
+        "restart-interval": 0,
+        "format": "{}",
+        "return-type": "raw",
+        "tooltip": false,
+        "on-click": "kitty cava"
+    },
+
+    "custom/endpoint": {
+        "format": "|",
+        "tooltip": false
+    },
+
+
+    // ------------------
+    // --- RIGHT SIDE ---
+    // ------------------
+
+    "custom/menu": {
+        "tooltip": false,
+        "format": "",
+        "on-click": "swaync-client -t"
+    },
+
+    "battery": {
+        "interval": 30,
+        "tooltip": false,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂄  {capacity}%",
+        "format-icons": [
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ]
+    },
+
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "󰈁",
+        "format-disconnected": "",
+        "tooltip-format-disconnected": "Error",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} 🖧 ",
+        "on-click": "rofi -show wifi"
+    },
+
+    "bluetooth": {
+        "format-on": "",
+        "format-off": "󰂲",
+        "format-disabled": "󰂲",
+        "format-connected": "",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "rofi-bluetooth"
+    },
+
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{icon}",
+        "format-bluetooth": "{icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "tooltip-format": "{volume}% {icon}\n {desc}",
+        "on-click": "kitty pulsemixer",
+        "on-scroll-up": "swayosd-client --output-volume raise",
+        "on-scroll-down": "swayosd-client --output-volume lower"
+    },
+
+    "backlight": {
+        "format": "{icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "scroll-step": 5,
+        "tooltip-format": "{percent}% {icon}",
+        "on-scroll-up": "swayosd-client --brightness raise",
+        "on-scroll-down": "swayosd-client --brightness lower"
+    },
+
+    "custom/pacman": {
+        "format": "{icon}{0}",
+        "return-type": "json",
+        "format-icons": {
+            "pending-updates": " ",
+            "updated": ""
+        },
+        "exec-if": "which waybar-updates",
+        "exec": "waybar-updates",
+        "on-click": "yes | yay -Syyu"
+    },
+
+    "custom/title": {
+        "exec": "~/.config/yamiyo/waybar/playing.sh",
+        "interval": 1,
+        "format": "{text}",
+        "format-icons": {
+            "spotify": "",
+            "firefox": "󰈹"
+        },
+        "tooltip": true,
+        "tooltip-format": "{icon} {alt}",
+        "return-type": "json"
+    },
+
+    "custom/play": {
+        "format": "{text}",
+        "exec": "~/.config/yamiyo/waybar/playing.sh status",
+        "interval": 1,
+        "return-type": "json",
+        "tooltip": false,
+        "on-click": "~/.config/yamiyo/hypr/player-smart.sh play-pause"
+    },
+
+    "custom/next": {
+        "format": "󰒭",
+        "tooltip": false,
+        "on-click": "~/.config/yamiyo/hypr/player-smart.sh next"
+    },
+
+    "custom/prev": {
+        "format": "󰒮",
+        "tooltip": false,
+        "on-click": "~/.config/yamiyo/hypr/player-smart.sh prev"
+    },
+
+    "custom/expand": {
+        "format": "",
+        "tooltip": false
+    },
+
+    "tray": {
+        "icon-size": 13,
+        "spacing": 3,
+        "show-passive-items": true,
+        "reverse-direction": false,
+        "smooth-scrolling-threshold": 1.0
+    },
+
+
+    // --------------
+    // --- GROUPS ---
+    // --------------
+
+    "group/player": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 300,
+            "transition-to-left": true
+        },
+        "modules": ["custom/title", "group/controls"]
+    },
+
+    "group/controls": {
+        "orientation": "horizontal",
+        "modules": ["custom/prev", "custom/play", "custom/next"]
+    },
+
+    "group/expand": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 300,
+            "transition-to-left": true
+        },
+        "modules": ["custom/expand", "tray"]
+    },
+
+    "group/quick": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "quick",
+            "transition-left-to-right": false
+        },
+        "modules": ["custom/menu", "group/actions"]
+    },
+
+    "group/actions": {
+        "orientation": "horizontal",
+        "modules": ["backlight", "pulseaudio", "bluetooth", "network"]
+    },
+
+    "group/system": {
+        "orientation": "horizontal",
+        "modules": ["memory", "cpu", "temperature"]
+    }
+}

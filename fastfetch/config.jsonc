@@ -1,0 +1,112 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "source": "$HOME/.config/fastfetch/ascii/arch.txt",
+        "position": "top",
+        "padding": {
+            "top": 1,
+            "right": 2
+        }
+    },
+    "display": {
+        "separator": ">  ",
+        "color": {
+            "separator": "red"
+        },
+        "constants": [
+            "───────────────────────────────────────────────────────────────────────────",
+            "│\u001b[75C│\u001b[75D"
+        ],
+        "bar":{
+                "char": {
+                    "elapsed": "■", // Character for elapsed portion
+                    "total": "-",    // Character for total portion
+                    },
+                "width": 20
+            }
+    },
+    "modules": [
+        {
+            "format": "{#1}{#keys}╭{$1}╮\u001b[76D {user-name-colored}{at-symbol-colored}{host-name-colored} ",
+            "type": "title"
+        },
+        {
+            "key": "{$2}{#31} kernel   ",
+            "type": "kernel"
+        },
+        {
+            "key": "{$2}{#32}󰅐 uptime   ",
+            "type": "uptime"
+        },
+        {
+            "key": "{$2}{#33}{icon} distro   ",
+            "type": "os",
+            "format": "{pretty-name}"
+        },
+        {
+            "key": "{$2}{#32}󰏖 packages ",
+            "type": "packages"
+        },
+        {
+           "key": "{$2}{#35} wm       ",
+            "type": "wm",
+            "format": "{pretty-name}"
+        },
+        {
+            "format": "{#1}{#keys}├{$1}┤\u001b[76D Specs: ",
+            "type": "custom"
+        },
+        {
+            "key": "{$2}{#35}󰍛 cpu      ",
+            "type": "cpu",
+            "showPeCoreCount": true,
+            "temp": true
+        },
+        {
+            "key": "{$2}{#34}󰾲 gpu      ",
+            "type": "gpu",
+            "format": "{name} @ {frequency}",
+            "temp": true
+            
+        },
+        {
+            "key": "{$2}{#33}󰉉 disk     ",
+            "type": "disk",
+            "folders": "/",
+            "percent": {
+            "type": 3,     // Show both percentage number and bar
+            "green": 30,   // Values below 30% in green
+            "yellow": 70
+            },
+            "format": "{size-percentage-bar} {size-percentage}"
+        },
+        {
+            "key": "{$2}{#32} memory   ",
+            "type": "memory",
+            "percent": {
+                "type": 3,     // Show both percentage number and bar
+                "green": 50,   // Values below 30% in green
+                "yellow": 70   // Values between 30% and 70% in yellow
+            },
+            "format": "{percentage-bar} {percentage}"
+        },
+        {
+            "key": "{$2}{#31}󰩟 network  ",
+            "type": "localip",
+            "format": "{ipv4} ({ifname})"
+        },
+        {
+            "format": "{#1}{#keys}├{$1}┤",
+            "type": "custom"
+        },
+        {
+            "key": "{$2}{#39} colors   ",
+            "type": "colors",
+            "symbol": "circle"
+        },
+        {
+            "format": "{#1}{#keys}╰{$1}╯",
+            "type": "custom"
+        }
+    ]
+}

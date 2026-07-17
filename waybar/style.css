@@ -1,0 +1,186 @@
+/*-------------------
+--- GLOBAL STYLES ---
+---------------------*/
+
+@import "colors.css";
+
+* {
+    all: unset;
+    font-family: "JetBrainsMono Nerd Font Propo", monospace;
+    font-weight: 600;
+}
+
+window#waybar {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background: transparent;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+    background: alpha(@color2, 0.6);
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    font-size: 0.8rem;
+    margin-bottom: 0px;
+    /* padding: 1px 2px 4px 2px; */
+}
+
+tooltip {
+    background: @background;
+    color:  @foreground;
+    border: 1px solid alpha(@color11, 0.9);
+}
+
+
+/*----------------
+--- Workspaces ---
+------------------*/
+/* background: alpha(@background, 0.6); */
+
+#workspaces {
+    font-size: 0.2rem;
+    padding: 2px 4px;
+    margin: 8px 1px;
+    border-radius: 99px
+}
+
+#workspaces button {
+    background-color:  alpha(@foreground, 0.6);
+    color: transparent;
+    padding: 0px 4px;
+    border-radius: 99px;
+    margin: 0px 2px;
+    min-width: 4px;
+}
+
+#workspaces button.active {
+    background-color:  @foreground;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    min-width: 1rem;
+}
+
+#workspaces button.empty.active {
+    background-color:  @foreground;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    min-width: 1rem;
+}
+
+#workspaces button.empty {
+    background-color: alpha( @foreground, 0.2);
+    text-shadow: 0 0 1.5px rgba(0, 0, 0, 0.2);
+}
+
+
+#workspaces button:hover {
+    background-color: alpha( @foreground, 0.6);
+    min-width: 0.8rem;
+    transition: all 0.1s ease;
+}
+
+
+/*------------------
+--- Left MODULES ---
+--------------------*/
+
+#clock, #system, #custom-cava, #windowcount, #window {
+    padding: 1px 3px;
+    /* background: alpha(@background, 0.6); */
+    margin: 0px 1px;
+    color: @foreground;
+    transition: all .3s ease;
+}
+
+#custom-cava {
+    font-family: monospace;
+    min-width: 16px;
+    padding: 1px 2px;
+}
+
+window#waybar.empty #window {
+    background: transparent;
+    border: transparent;
+}
+
+#memory, #temperature, #cpu {
+    padding: 0px 3px;
+}
+
+#memory:hover, #cpu:hover, #temperature:hover, #custom-cava:hover {
+    color: alpha( @foreground, 0.7);
+    text-shadow: 0 0 2px alpha(@background, 0.1);
+}
+
+
+/*-------------------
+--- RIGHT MODULES ---
+---------------------*/
+
+#battery, #quick, #custom-title, #expand, #custom-pacman, #player, #actions, #custom-play, #custom-next, #custom-prev {
+    padding: 1px 3px;
+    /* background: alpha(@background, 0.6); */
+    margin: 0px 2px;
+    color: @foreground;
+    transition: all .3s ease;
+}
+
+#custom-menu {
+    padding: 0px 1px;
+}
+
+#battery {
+    padding: 0px 4px;
+}
+
+#battery.charging {
+    color: #26A65B;
+}
+
+#battery.warning:not(.charging) {
+    color: #ffbe61;
+}
+
+#battery.critical:not(.charging) {
+    color: #f53c3c;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+/* Hover effect for multiple modules */
+
+#bluetooth:hover,
+#network:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#mpris:hover,
+#custom-expand:hover,
+#custom-title:hover,
+#custom-menu:hover,
+#custom-pacman:hover,
+#custom-play:hover,
+#custom-next:hover,
+#custom-prev:hover {
+    color: alpha( @foreground, 0.7);
+    text-shadow: 0 0 2px alpha(@background, 0.1);
+}
+
+#custom-expand {
+    padding: 0px 1px;
+}
+
+#tray, #network, #bluetooth, #pulseaudio, #backlight {
+    padding: 0px 3px;
+    margin-right: 3px;
+    /*border: alpha( @foreground, 0.6) solid 1px;
+    border-left: 2px solid alpha( @foreground, 0.6);
+    border-right: 2px solid alpha( @foreground, 0.6); */
+}
+
+#actions, #controls, #tray {
+    border-radius: 4px;
+    background: alpha(@background, 0.3);
+}
+
+#custom-play, #custom-next, #custom-prev {
+    padding: 0px 3px;
+    margin-left: 3px;
+}
