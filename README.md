@@ -1,4 +1,4 @@
-# Dots
+# Yamiyo-Dots
 
 My Hyprland rice. Wallpaper-driven dynamic theming via wallust, glassmorphic surfaces, spring-physics animations.
 
@@ -15,7 +15,6 @@ Put wallpapers in `~/Pictures/wallz/`. Press `ALT + W` to browse -- colors regen
 | Package | AUR | Notes |
 |---------|-----|-------|
 | `hyprland` | | Wayland compositor (Lua config support) |
-| `hyprpm` | | Plugin manager (comes with Hyprland) |
 | | `hyprpolkitagent` | Polkit authentication |
 | | `hyprmoncfg` | Monitor config generator |
 
@@ -27,6 +26,9 @@ Put wallpapers in `~/Pictures/wallz/`. Press `ALT + W` to browse -- colors regen
 | `waybar` | | Status bar |
 | `rofi` | | App launcher (Wayland fork) |
 | | `rofi-bluetooth-git` | Bluetooth menu |
+| | `rofi-calc` | Calculator |
+| | `rofi-emoji` | Emoji picker |
+| | `rofi-wifi` | WiFi menu |
 | `swaync` | | Notification daemon |
 | `swayosd` | | Volume/brightness OSD |
 | `cava` | | Audio visualizer |
@@ -43,8 +45,8 @@ Put wallpapers in `~/Pictures/wallz/`. Press `ALT + W` to browse -- colors regen
 | | `python-pywalfox` | Firefox theme sync |
 | | `awww` | Wallpaper daemon with transitions |
 | `materia-gtk-theme` | | GTK theme |
-| | `WhiteSur-icon-theme` | Icon theme ([manual install](https://github.com/vinceliuice/WhiteSur-icon-theme)) |
-| `bibata-cursor-theme` | | Cursor theme |
+| | `whitesur-icon-theme` | Icon theme |
+| | `bibata-cursor-theme` | Cursor theme |
 | `qt6ct` | | Qt6 settings |
 | `kvantum` | | Qt theme engine |
 | `nwg-look` | | GTK appearance manager |
@@ -81,18 +83,21 @@ Put wallpapers in `~/Pictures/wallz/`. Press `ALT + W` to browse -- colors regen
 | `wtype` | | Wayland typing utility |
 | `libnotify` | | `notify-send` |
 
-### Audio
+### Audio & Bluetooth
 
 | Package | AUR | Notes |
 |---------|-----|-------|
 | `pipewire` | | Audio server |
 | `wireplumber` | | Session manager (`wpctl`) |
 | `pulsemixer` | | TUI mixer (in waybar) |
+| `pamixer` | | PulseAudio CLI mixer |
+| `blueman` | | Bluetooth manager |
 
 ### System
 
 | Package | AUR | Notes |
 |---------|-----|-------|
+| `brightnessctl` | | Backlight control |
 | `jq` | | JSON processor |
 | | `yay` | AUR helper |
 
@@ -101,12 +106,10 @@ Put wallpapers in `~/Pictures/wallz/`. Press `ALT + W` to browse -- colors regen
 ### Dependencies
 
 ```bash
-sudo pacman -S --needed hyprland hyprpm kitty waybar rofi swaync swayosd cava fastfetch grim slurp jq playerctl wl-clipboard wtype libnotify nemo firefox mpv pipewire wireplumber pulsemixer qt6ct kvantum nwg-look materia-gtk-theme bibata-cursor-theme
+sudo pacman -S --needed hyprland kitty waybar rofi swaync swayosd cava fastfetch grim slurp jq playerctl wl-clipboard wtype libnotify nemo firefox mpv pipewire wireplumber pulsemixer pamixer blueman brightnessctl qt6ct kvantum nwg-look materia-gtk-theme
 
-yay -S --needed hyprpolkitagent hyprmoncfg wallust python-pywalfox awww rofi-bluetooth-git swappy wl-screenrec-git cliphist yay quickshell-overview-git ttf-jetbrains-mono-nerd ttf-meslo-nerd-font-powerlevel10k
+yay -S --needed hyprpolkitagent hyprmoncfg wallust python-pywalfox awww rofi-bluetooth-git rofi-calc rofi-emoji rofi-wifi swappy wl-screenrec-git cliphist yay quickshell-overview-git whitesur-icon-theme bibata-cursor-theme ttf-jetbrains-mono-nerd ttf-meslo-nerd-font-powerlevel10k
 ```
-
-Then install [WhiteSur-icon-theme](https://github.com/vinceliuice/WhiteSur-icon-theme) manually.
 
 ### Configs
 
